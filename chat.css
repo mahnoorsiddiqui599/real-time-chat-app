@@ -1,0 +1,142 @@
+/* --- Basic Reset --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* --- Full Screen Container with Animated Background --- */
+body, html {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(270deg, #ff5f6d, #ffc371, #24c6dc, #514a9d);
+  background-size: 800% 800%;
+  animation: gradientBG 15s ease infinite;
+}
+
+/* --- Gradient Animation --- */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* --- Glassmorphism Sub-container --- */
+.sub-container {
+  background: rgba(255, 255, 255, 0.1); /* transparent glass */
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  padding: 30px;
+  width: 400px;
+  max-width: 95%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  color: #fff;
+  position: relative;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* --- Dark Mode Button --- */
+#darkmood {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #fff;
+}
+
+/* --- Header --- */
+h2 {
+  text-align: center;
+  font-size: 24px;
+}
+
+/* --- Messages Area --- */
+#messages {
+  background: rgba(255,255,255,0.05);
+  border-radius: 15px;
+  padding: 10px;
+  min-height: 200px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+/* Message bubbles */
+.message {
+  margin: 8px 0;
+  padding: 10px 15px;
+  border-radius: 15px;
+  background: rgba(255,255,255,0.2);
+  width: fit-content;
+  max-width: 80%;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.message.self {
+  margin-left: auto;
+  background: rgba(0, 255, 128, 0.3);
+}
+
+/* --- Fade-in Animation --- */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(10px);}
+  100% { opacity: 1; transform: translateY(0);}
+}
+
+/* --- Message Input --- */
+input#message {
+  padding: 10px 15px;
+  border-radius: 15px;
+  border: none;
+  outline: none;
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+}
+
+/* --- Buttons --- */
+button {
+  padding: 10px 15px;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: rgba(255,255,255,0.4);
+}
+
+/* Logout button special */
+#logout {
+  background: rgba(255,0,0,0.3);
+}
+#logout:hover {
+  background: rgba(255,0,0,0.5);
+}
+
+/* Scrollbar style */
+#messages::-webkit-scrollbar {
+  width: 6px;
+}
+#messages::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.3);
+  border-radius: 5px;
+}

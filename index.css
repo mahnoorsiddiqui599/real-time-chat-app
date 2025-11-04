@@ -1,0 +1,212 @@
+/* ===== General Styling ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ===== Animated Flower Background ===== */
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee, #cfd9df, #a1c4fd);
+  background-size: 600% 600%;
+  animation: gradientBG 30s ease infinite;
+  position: relative;
+}
+
+/* Gradient animation */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===== Container Styling ===== */
+#auth-container {
+  width: 450px;
+  max-width: 90%;
+  padding: 50px;
+  border-radius: 25px;
+  background: rgba(255,255,255,0.05); /* almost transparent */
+  backdrop-filter: blur(15px);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.2);
+  color: #fff;
+  text-align: center;
+  position: relative;
+  transform: rotateY(5deg);
+  transition: transform 0.5s ease, box-shadow 0.3s ease;
+  z-index: 2;
+}
+
+/* 3D Hover Effect */
+#auth-container:hover {
+  transform: rotateY(0deg) translateY(-5px);
+  box-shadow: 0 35px 80px rgba(0,0,0,0.3);
+}
+
+/* Logo and heading */
+.logo { font-size: 3rem; margin-bottom: 15px; color: #ffcc00; }
+h1 { font-size: 1.8rem; margin-bottom: 30px; font-weight: 700; }
+h1 .heart { color: #ff4b5c; }
+
+/* Input and buttons */
+.input-group { position: relative; margin-bottom: 20px; }
+.input-group input {
+  width: 100%; padding: 12px 40px 12px 15px; border-radius: 12px;
+  border: none; outline: none; font-size: 1rem;
+  background: rgba(255,255,255,0.1); color: #fff;
+  box-shadow: inset 0 3px 10px rgba(0,0,0,0.1);
+}
+.input-group input:focus {
+  background: rgba(255,255,255,0.2);
+  box-shadow: 0 0 10px rgba(255,255,255,0.3);
+}
+.input-icon {
+  position: absolute; right: 15px; top: 50%; transform: translateY(-50%);
+  color: #fff;
+}
+button {
+  width: 100%; padding: 12px; margin-bottom: 15px;
+  border: none; border-radius: 12px;
+  font-size: 1rem; font-weight: 600;
+  cursor: pointer; color: #fff;
+  background: linear-gradient(135deg, #ff9966, #ff5e62);
+  box-shadow: 0 4px 15px rgba(255,94,98,0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255,94,98,0.5);
+}
+
+/* ===== Flower Animation ===== */
+.flowers {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.flowers span {
+  position: absolute;
+  display: block;
+  width: 20px; height: 20px;
+  background: url('https://i.ibb.co/0X4XyDB/flower.png') no-repeat center center;
+  background-size: contain;
+  animation: floatFlower 15s linear infinite;
+  opacity: 0.8;
+}
+
+.flowers span:nth-child(1) { left: 10%; animation-duration: 12s; }
+.flowers span:nth-child(2) { left: 30%; animation-duration: 18s; }
+.flowers span:nth-child(3) { left: 50%; animation-duration: 14s; }
+.flowers span:nth-child(4) { left: 70%; animation-duration: 16s; }
+.flowers span:nth-child(5) { left: 90%; animation-duration: 20s; }
+
+@keyframes floatFlower {
+  0% { transform: translateY(100vh) rotate(0deg); opacity: 0.6; }
+  50% { transform: translateY(50vh) rotate(180deg); opacity: 0.8; }
+  100% { transform: translateY(-50vh) rotate(360deg); opacity: 0; }
+}
+/* ===== Transparent Container ===== */
+#auth-container {
+  width: 450px;
+  max-width: 90%;
+  padding: 50px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0); /* fully transparent */
+  backdrop-filter: blur(15px);        /* optional: soft glass blur */
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1); /* subtle shadow for depth */
+  color: #fff;
+  text-align: center;
+  position: relative;
+  transform: rotateY(5deg);
+  transition: transform 0.5s ease, box-shadow 0.3s ease;
+  z-index: 2;
+}
+
+/* 3D Hover Effect */
+#auth-container:hover {
+  transform: rotateY(0deg) translateY(-5px);
+  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.2);
+}
+/* ===== Body Background Animation ONLY ===== */
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin: 0;
+  background: linear-gradient(45deg, #ff9a9e, #529397, #e97ecb, #617caa, #e07575, #a1c4fd);
+  background-size: 600% 600%;
+  animation: animateBG 20s ease infinite;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Gradient animation */
+@keyframes animateBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===== Transparent Chat Container ===== */
+#auth-container {
+  width: 450px;
+  max-width: 90%;
+  padding: 50px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0); /* fully transparent */
+  backdrop-filter: blur(15px);        /* optional glass effect */
+  box-shadow: 0 25px 60px rgba(0,0,0,0.1);
+  color: #fff;
+  text-align: center;
+  position: relative;
+  transform: rotateY(5deg);
+  transition: transform 0.5s ease, box-shadow 0.3s ease;
+  z-index: 2;
+}
+
+/* 3D hover effect */
+#auth-container:hover {
+  transform: rotateY(0deg) translateY(-5px);
+  box-shadow: 0 35px 80px rgba(0,0,0,0.2);
+}
+
+/* ===== Inputs & Buttons Transparent ===== */
+.input-group input {
+  width: 100%;
+  padding: 12px 40px 12px 15px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.3); /* subtle border */
+  outline: none;
+  font-size: 1rem;
+  background: rgba(255,255,255,0.05); /* almost transparent */
+  color: #fff;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  background: rgba(255,255,255,0.1); /* almost transparent */
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-3px);
+}
