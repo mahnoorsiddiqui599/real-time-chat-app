@@ -34,7 +34,7 @@ document.getElementById('signup')?.addEventListener('click', () => {
   createUserWithEmailAndPassword(auth, email, password)
     .then(() => {
       alert('SignUp Successfully');
-      window.location.href = "user.html";
+      window.location.href = "chat.html";
     })
     .catch((error) => alert(error.message));
 });
@@ -47,7 +47,7 @@ document.getElementById('login')?.addEventListener('click', () => {
   signInWithEmailAndPassword(auth, email, password)
     .then(() => {
       alert('Login Successfully');
-      window.location.href = "user.html";
+      window.location.href = "chat.html";
     })
     .catch((error) => alert(error.message));
 });
@@ -57,7 +57,7 @@ document.getElementById('google-btn')?.addEventListener('click', () => {
   signInWithPopup(auth, provider)
     .then(() => {
       alert('Login Successfully');
-      window.location.href = "user.html";
+      window.location.href = "chat.html";
     })
     .catch((error) => alert(error.message));
 });
@@ -73,9 +73,9 @@ document.getElementById('logout')?.addEventListener('click', () => {
 });
 
 // Navigate to Chat
-document.getElementById('user-btn')?.addEventListener('click', () => {
-  window.location.href = 'chat.html';
-});
+// document.getElementById('user-btn')?.addEventListener('click', () => {
+//   window.location.href = 'chat.html';
+// });
 
 
 

@@ -1,142 +1,149 @@
-/* --- Basic Reset --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
-/* --- Full Screen Container with Animated Background --- */
-body, html {
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-}
-
-.container {
+/* ===== Animated Gradient Background ===== */
+body {
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  width: 100%;
-  background: linear-gradient(270deg, #ff5f6d, #ffc371, #24c6dc, #514a9d);
-  background-size: 800% 800%;
-  animation: gradientBG 15s ease infinite;
+  overflow: hidden;
+  margin: 0;
+  background: linear-gradient(45deg, #ff9a9e, #529397, #e97ecb, #617caa, #e07575, #a1c4fd);
+  background-size: 600% 600%;
+  animation: animateBG 20s ease infinite;
 }
 
-/* --- Gradient Animation --- */
-@keyframes gradientBG {
+@keyframes animateBG {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-/* --- Glassmorphism Sub-container --- */
-.sub-container {
-  background: rgba(255, 255, 255, 0.1); /* transparent glass */
-  backdrop-filter: blur(15px);
-  border-radius: 20px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-  padding: 30px;
-  width: 400px;
-  max-width: 95%;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  color: #fff;
-  position: relative;
-  border: 1px solid rgba(255,255,255,0.2);
-}
-
-/* --- Dark Mode Button --- */
-#darkmood {
+/* ===== Floating Flowers ===== */
+.flowers {
   position: absolute;
-  right: 20px;
-  top: 20px;
-  background: transparent;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-  color: #fff;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  overflow: hidden;
+  z-index: 1;
 }
 
-/* --- Header --- */
-h2 {
+.flowers span {
+  position: absolute;
+  display: block;
+  width: 20px; height: 20px;
+  background: url('https://i.ibb.co/0X4XyDB/flower.png') no-repeat center center;
+  background-size: contain;
+  animation: floatFlower 15s linear infinite;
+  opacity: 0.8;
+}
+
+.flowers span:nth-child(1) { left: 10%; animation-duration: 12s; }
+.flowers span:nth-child(2) { left: 30%; animation-duration: 18s; }
+.flowers span:nth-child(3) { left: 50%; animation-duration: 14s; }
+.flowers span:nth-child(4) { left: 70%; animation-duration: 16s; }
+.flowers span:nth-child(5) { left: 90%; animation-duration: 20s; }
+
+@keyframes floatFlower {
+  0% { transform: translateY(100vh) rotate(0deg); opacity: 0.6; }
+  50% { transform: translateY(50vh) rotate(180deg); opacity: 0.8; }
+  100% { transform: translateY(-50vh) rotate(360deg); opacity: 0; }
+}
+
+/* ===== Transparent Chat Container ===== */
+.container {
+  position: relative;
+  z-index: 2;
+  width: 450px;
+  max-width: 90%;
+  padding: 50px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0); /* fully transparent */
+  backdrop-filter: blur(15px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1);
+  color: #fff;
   text-align: center;
-  font-size: 24px;
+  transform: rotateY(5deg);
+  transition: transform 0.5s ease, box-shadow 0.3s ease;
 }
 
-/* --- Messages Area --- */
+.container:hover {
+  transform: rotateY(0deg) translateY(-5px);
+  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== Heading ===== */
+.container h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* ===== Messages Box ===== */
 #messages {
-  background: rgba(255,255,255,0.05);
-  border-radius: 15px;
-  padding: 10px;
-  min-height: 200px;
-  max-height: 300px;
+  height: 250px;
   overflow-y: auto;
-}
-
-/* Message bubbles */
-.message {
-  margin: 8px 0;
-  padding: 10px 15px;
+  margin-bottom: 15px;
+  padding: 10px;
   border-radius: 15px;
-  background: rgba(255,255,255,0.2);
-  width: fit-content;
-  max-width: 80%;
-  animation: fadeIn 0.5s ease forwards;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: inset 0 3px 10px rgba(0,0,0,0.1);
+  text-align: left;
 }
 
-.message.self {
-  margin-left: auto;
-  background: rgba(0, 255, 128, 0.3);
-}
-
-/* --- Fade-in Animation --- */
-@keyframes fadeIn {
-  0% { opacity: 0; transform: translateY(10px);}
-  100% { opacity: 1; transform: translateY(0);}
-}
-
-/* --- Message Input --- */
-input#message {
-  padding: 10px 15px;
-  border-radius: 15px;
-  border: none;
+/* ===== Inputs ===== */
+input {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.3);
   outline: none;
-  background: rgba(255,255,255,0.2);
+  font-size: 1rem;
+  background: rgba(255,255,255,0.05);
   color: #fff;
+  margin-bottom: 10px;
 }
 
-/* --- Buttons --- */
-button {
-  padding: 10px 15px;
-  border-radius: 15px;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-  background: rgba(255,255,255,0.2);
-  color: #fff;
-  transition: all 0.3s ease;
+input::placeholder { color: rgba(255,255,255,0.6); }
+
+input:focus {
+  background: rgba(255,255,255,0.15);
+  box-shadow: 0 0 10px rgba(255,255,255,0.3);
 }
+
+/* ===== Buttons ===== */
+button {
+  width: 48%;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+
+
 
 button:hover {
-  background: rgba(255,255,255,0.4);
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-3px);
 }
 
-/* Logout button special */
 #logout {
-  background: rgba(255,0,0,0.3);
-}
-#logout:hover {
-  background: rgba(255,0,0,0.5);
+  background: rgba(255, 75, 92, 0.2);
+  margin-left: 4%;
 }
 
-/* Scrollbar style */
-#messages::-webkit-scrollbar {
-  width: 6px;
+#logout:hover {
+  background: rgba(255, 75, 92, 0.3);
 }
-#messages::-webkit-scrollbar-thumb {
-  background: rgba(255,255,255,0.3);
-  border-radius: 5px;
 }
